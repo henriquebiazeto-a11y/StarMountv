@@ -1,0 +1,696 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>STARCOUNT | Shopping retrô</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --yellow:#ffd400;
+      --yellow-2:#ffe66d;
+      --pink:#ff4fa3;
+      --purple:#4f46e5;
+      --navy:#102040;
+      --navy-2:#1a2d5c;
+      --green:#18c77d;
+      --sky:#3ec9ff;
+      --red:#ff3d3d;
+      --orange:#ff9b1a;
+      --cream:#fff5d6;
+      --bg:#f6efe2;
+      --white:#fffdf9;
+      --text:#10182f;
+      --muted:#4d5872;
+      --line:rgba(16,29,74,.09);
+    }
+    *{box-sizing:border-box} body{margin:0;font-family:Inter,sans-serif;background:radial-gradient(circle at top left,#ff4fa3 0,#ff4fa3 4%,transparent 5%),linear-gradient(180deg,#fff5d6,#f4ebdc 55%,#e9e0cf);color:var(--text)} a{text-decoration:none;color:inherit} button,input{font:inherit} img{display:block;max-width:100%}
+    .page{width:min(1240px,calc(100% - 28px));margin:0 auto}.topbar{background:linear-gradient(180deg,var(--yellow),#f4d41d);border-bottom:2px solid rgba(16,29,74,.09);position:sticky;top:0;z-index:20}.topbar-inner{display:flex;align-items:center;gap:16px;min-height:80px}.brand{display:flex;align-items:center;gap:10px;min-width:200px}.brand-mark{width:18px;height:18px;border-radius:6px;background:linear-gradient(135deg,var(--purple),var(--sky));transform:rotate(45deg);position:relative;box-shadow:inset 0 0 0 3px rgba(255,255,255,.15)}.brand-mark:before,.brand-mark:after{content:"";position:absolute;background:rgba(255,255,255,.9)}.brand-mark:before{width:2px;height:16px;left:8px;top:1px}.brand-mark:after{width:16px;height:2px;left:1px;top:8px}.brand-name{font-weight:900;letter-spacing:-.08em;line-height:1;text-transform:lowercase;font-size:1.1rem}.brand-name .star{color:var(--navy-2)}.brand-name .mounch{color:var(--green)}.brand-name span{display:block}.search{flex:1;max-width:700px;display:flex;align-items:center;height:44px;border-radius:999px;border:2px solid rgba(16,29,74,.08);background:rgba(255,255,255,.7);padding:0 16px 0 18px}.search input{flex:1;border:none;background:transparent;outline:none;font-size:1rem}.search input::placeholder{color:rgba(29,35,55,.65)}.search .lens{width:18px;height:18px;border:2px solid var(--navy);border-radius:50%;position:relative}.search .lens:after{content:"";position:absolute;width:8px;height:2px;background:var(--navy);right:-5px;bottom:-1px;transform:rotate(45deg);border-radius:999px}.nav{margin-left:auto;display:flex;align-items:center;gap:16px;font-size:.78rem;font-weight:700}.nav a{opacity:.9}.account{display:inline-flex;align-items:center;gap:8px;padding:7px 10px 7px 8px;border:1px solid rgba(16,29,74,.08);border-radius:999px;background:rgba(255,255,255,.2)}.avatar{width:24px;height:24px;display:grid;place-items:center;border-radius:50%;background:rgba(255,255,255,.72);border:1px solid rgba(16,29,74,.08)}.budget-pill{display:flex;align-items:center;gap:10px;padding:9px 12px;border:1px solid rgba(16,29,74,.08);background:rgba(255,255,255,.22);border-radius:14px;font-size:.72rem;font-weight:800;color:var(--navy)}.budget-pill strong{font-size:.82rem}.cart-btn{position:relative;border:1px solid rgba(16,29,74,.08);background:rgba(255,255,255,.2);width:42px;height:42px;border-radius:50%;cursor:pointer}.cart-count{position:absolute;top:-6px;right:-4px;background:var(--pink);min-width:22px;height:22px;border-radius:50%;display:grid;place-items:center;color:#fff;font-size:.72rem;font-weight:800;border:2px solid #fff}.hero{background:linear-gradient(180deg,var(--yellow),#f4d625 72%);border-bottom:2px solid rgba(16,29,74,.08)}.hero-inner{display:flex;align-items:center;min-height:340px;gap:24px}.hero-copy{flex:1;max-width:540px;padding-left:10px}.hero h1{margin:0;color:var(--navy);font-size:clamp(2.7rem,4vw,4.8rem);line-height:.94;letter-spacing:-.08em}.hero h1 .pink{color:var(--pink)}.hero-actions{display:flex;align-items:center;gap:16px;margin-top:22px;flex-wrap:wrap}.hero-pill{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:0 18px;border-radius:999px;border:2px solid rgba(16,29,74,.08);font-weight:900;letter-spacing:-.04em;text-transform:uppercase;box-shadow:0 10px 20px rgba(16,29,74,.08)}.hero-pill.primary{background:linear-gradient(135deg,var(--purple),var(--navy-2));color:#fff}.hero-pill.secondary{background:rgba(255,255,255,.7);color:var(--navy)}.hero-pill .ring{width:20px;height:20px;border:2px solid currentColor;border-radius:50%;display:inline-block}.hero-pill .perc{font-size:2.2rem;font-weight:900;letter-spacing:-.08em}.terms{display:block;margin-top:10px;font-size:.72rem;font-weight:700;color:rgba(16,29,74,.7)}.hero-art{position:relative;flex:1;min-height:290px}.art-box{position:absolute;right:16px;bottom:10px;width:420px;height:210px;background:linear-gradient(180deg,#b5773d,#8a4f25);border-radius:12px 12px 16px 16px;box-shadow:0 24px 30px rgba(88,55,16,.18);border:2px solid rgba(32,17,6,.13)}.art-box:before{content:"";position:absolute;left:20px;right:20px;top:-16px;height:22px;background:linear-gradient(180deg,#d3a161,#a77744);transform:skewX(-18deg);border-radius:8px 8px 0 0}.art-box:after{content:"";position:absolute;left:10px;right:10px;bottom:-42px;height:42px;background:linear-gradient(180deg,#efd9b4,#d7b07d);clip-path:polygon(0 0,100% 0,92% 100%,8% 100%);border-radius:0 0 14px 14px}.label{position:absolute;display:inline-flex;align-items:center;justify-content:center;height:28px;padding:0 16px;border-radius:999px;background:rgba(255,255,255,.42);border:1px solid rgba(16,29,74,.08);font-size:.72rem;font-weight:800}.label.one{left:30px;top:18px}.label.two{right:26px;top:40px}.label.three{right:130px;top:112px;background:rgba(16,29,74,.9);color:#fff}.headphones{position:absolute;right:250px;bottom:170px;width:190px;height:94px;border:8px solid #0d1b35;border-bottom:0;border-radius:120px 120px 0 0;transform:rotate(-16deg)}.headphones:before,.headphones:after{content:"";position:absolute;top:42px;width:58px;height:58px;border:10px solid #0d1b35;border-radius:50%}.headphones:before{left:-17px}.headphones:after{right:-17px}.band{position:absolute;left:12px;right:12px;top:28px;height:18px;border-radius:50%;background:rgba(12,19,32,.2)}.jar{position:absolute;right:360px;bottom:168px;width:110px;height:46px;border-radius:20px 20px 15px 15px;transform:rotate(16deg);background:linear-gradient(180deg,#dfeaf6,#bfd6eb);border:1px solid rgba(16,29,74,.08)}.jar:before{content:"";position:absolute;left:12px;right:12px;top:8px;bottom:7px;border-radius:14px;background:linear-gradient(90deg,#69d7ff,#1d7ef3)}.jar:after{content:"";position:absolute;left:50%;top:-13px;width:12px;height:18px;transform:translateX(-50%);border-radius:8px;background:rgba(255,255,255,.9)}.features{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;margin-top:18px}.feature{background:rgba(255,255,255,.7);border:2px solid rgba(16,29,74,.06);border-radius:18px;padding:12px;min-height:220px;display:flex;flex-direction:column;justify-content:flex-end}.feature-art{height:118px;border-radius:16px;margin-bottom:10px;position:relative;background:linear-gradient(180deg,#dcecf7,#b2d8f0);overflow:hidden}.feature:nth-child(2) .feature-art{background:linear-gradient(180deg,#f2dfb6,#d8bc9d)}.feature:nth-child(3) .feature-art{background:linear-gradient(180deg,#e0e8f7,#b7c6db)}.feature:nth-child(4) .feature-art{background:linear-gradient(180deg,#f7dfc3,#e7b884)}.feature:nth-child(5) .feature-art{background:linear-gradient(180deg,#d8c8b5,#b48d66)}.feature-blob{position:absolute;inset:12px 18px 12px 18px;border:2px solid rgba(16,29,74,.08);border-radius:18px;background:rgba(255,255,255,.52)}.feature-blob:before,.feature-blob:after{content:"";position:absolute;background:rgba(255,255,255,.72)}.feature-blob:before{left:27%;right:27%;top:16%;height:29%;border-radius:12px 12px 10px 10px}.feature-blob:after{left:18%;right:18%;bottom:18%;height:18%;border-radius:12px}.feature h3{margin:0 0 5px;text-align:center;font-size:.75rem;color:var(--navy);font-weight:800}.feature p{margin:0 0 4px;text-align:center;font-size:.7rem;color:var(--muted);line-height:1.5}.feat-price{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:2px;font-size:.7rem;font-weight:800;color:var(--navy)}.feat-price del{color:rgba(16,29,74,.5)}.chip{display:inline-flex;align-items:center;justify-content:center;margin:10px auto 0;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.8);border:1px solid rgba(16,29,74,.08);font-size:.7rem;font-weight:800;color:var(--navy)}.catalog{margin-top:18px;background:rgba(255,255,255,.42);border:1px solid rgba(16,29,74,.06);border-radius:20px;padding:16px}.catalog-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}.catalog-head h2{margin:0;font-size:clamp(1.8rem,2vw,2.6rem);letter-spacing:-.07em;color:var(--navy)}.dots{display:flex;gap:8px}.dot{width:10px;height:10px;border-radius:50%;background:rgba(16,29,74,.18)}.dot.active{background:var(--navy)}.filters,.store-filters{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:18px}.filter,.store-filter{background:rgba(255,255,255,.7);border:1px solid rgba(16,29,74,.08);border-radius:999px;padding:9px 14px;font-weight:800;color:var(--navy);cursor:pointer}.filter.active,.store-filter.active{background:linear-gradient(135deg,var(--pink),var(--purple));color:#fff;border-color:transparent}.product-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px}.product{background:rgba(255,255,255,.78);border:1px solid rgba(16,29,74,.08);border-radius:18px;padding:12px;display:flex;flex-direction:column}.img-wrap{position:relative;height:176px;border-radius:14px;overflow:hidden}.img-wrap img{width:100%;height:100%;object-fit:cover}.badge{position:absolute;left:8px;bottom:8px;background:rgba(255,255,255,.8);padding:5px 8px;border-radius:999px;font-size:.62rem;font-weight:800;border:1px solid rgba(16,29,74,.06)}.store-badge{position:absolute;right:8px;bottom:8px;background:rgba(16,29,74,.82);color:#fff;padding:5px 8px;border-radius:999px;font-size:.58rem;font-weight:800;border:1px solid rgba(16,29,74,.1)}.heart{position:absolute;top:8px;right:8px;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.8);border:1px solid rgba(16,29,74,.08);cursor:pointer}.product h3{margin:12px 0 8px;min-height:42px;font-size:.86rem;line-height:1.35;color:var(--navy)}.desc{margin:0 0 8px;font-size:.72rem;color:var(--muted);line-height:1.5}.price-row{display:flex;align-items:baseline;gap:8px;margin-bottom:8px}.price-row strong{font-size:1.12rem;letter-spacing:-.04em}.price-row del{font-size:.72rem;color:rgba(16,29,74,.5)}.discount{color:var(--green);font-size:.72rem;font-weight:800;margin-bottom:10px}.shipping{font-size:.72rem;color:var(--muted);margin-bottom:12px}.shipping strong{color:var(--green)}.product-actions{display:grid;grid-template-columns:1fr auto;gap:8px;margin-top:auto}.buy-btn,.mini-btn{border:none;border-radius:12px;cursor:pointer;font-weight:800}.buy-btn{background:linear-gradient(135deg,var(--pink),var(--purple));color:#fff;min-height:38px;box-shadow:0 10px 14px rgba(108,87,255,.2)}.mini-btn{width:38px;background:rgba(255,255,255,.72);border:1px solid rgba(16,29,74,.08);color:var(--navy)}.cart-drawer{position:fixed;top:0;right:0;width:min(430px,92vw);height:100vh;background:linear-gradient(180deg,#fffdf7,#f5eeea);box-shadow:-18px 0 38px rgba(16,29,74,.18);transform:translateX(110%);transition:transform .25s ease;z-index:60;display:flex;flex-direction:column}.cart-drawer.open{transform:translateX(0)}.cart-head{display:flex;align-items:center;justify-content:space-between;padding:18px 18px 14px;border-bottom:1px solid rgba(16,29,74,.08);background:linear-gradient(180deg,rgba(244,216,37,.55),rgba(244,216,37,.12))}.cart-head h3{margin:0;color:var(--navy);font-size:1.25rem;letter-spacing:-.05em}.close-btn{width:36px;height:36px;border-radius:50%;border:1px solid rgba(16,29,74,.08);background:rgba(255,255,255,.7);font-size:1.3rem;cursor:pointer}.cart-body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:12px;overflow-y:auto;flex:1}.empty{display:none;text-align:center;color:var(--muted);padding:32px 12px 0;font-weight:700;line-height:1.6}.cart-item{display:grid;grid-template-columns:78px 1fr auto;gap:12px;padding:10px;border:1px solid rgba(16,29,74,.08);border-radius:16px;background:rgba(255,255,255,.72)}.cart-item img{width:78px;height:78px;border-radius:12px;object-fit:cover}.cart-item h4{margin:0 0 6px;font-size:.8rem;line-height:1.35;color:var(--navy)}.cart-item-price{font-size:.86rem;font-weight:800;color:var(--navy);margin-bottom:8px}.qty{display:inline-flex;align-items:center;border:1px solid rgba(16,29,74,.08);border-radius:999px;overflow:hidden;background:rgba(255,255,255,.7)}.qty button{width:28px;height:28px;border:none;background:transparent;font-size:1.1rem;font-weight:800;cursor:pointer}.qty span{min-width:24px;text-align:center;font-size:.8rem;font-weight:800}.remove{padding:0;margin-top:8px;border:none;background:transparent;color:#ff4d63;font-weight:800;cursor:pointer;font-size:.72rem}.sum{border-top:1px solid rgba(16,29,74,.08);padding-top:12px;display:flex;flex-direction:column;gap:8px}.sum-row{display:flex;justify-content:space-between;align-items:center;font-size:.85rem;font-weight:700;color:var(--navy)}.sum-row.total{font-size:1.08rem;font-weight:900}.checkout{width:100%;min-height:48px;border:none;border-radius:12px;cursor:pointer;background:linear-gradient(135deg,var(--green),#1ea66e);color:#fff;font-weight:900;box-shadow:0 12px 18px rgba(30,195,123,.18)}.checkout:disabled{background:rgba(16,29,74,.12);color:rgba(16,29,74,.4);box-shadow:none;cursor:not-allowed}.backdrop{position:fixed;inset:0;background:rgba(15,19,34,.34);backdrop-filter:blur(2px);z-index:50;opacity:0;visibility:hidden;transition:opacity .2s ease,visibility .2s ease}.backdrop.show{opacity:1;visibility:visible}.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(8px);opacity:0;transition:opacity .2s ease,transform .2s ease;background:rgba(16,29,74,.95);color:#fff;padding:12px 16px;border-radius:999px;font-size:.78rem;font-weight:800;z-index:90;pointer-events:none}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}@media(max-width:1180px){.features{grid-template-columns:repeat(3,minmax(0,1fr))}.product-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}@media(max-width:900px){.topbar-inner{flex-wrap:wrap;padding:10px 0}.nav{order:3;width:100%;justify-content:space-between}.hero-inner{flex-direction:column;align-items:flex-start}.hero-copy{max-width:100%}.hero-art{width:100%;min-height:260px}.art-box{right:50px}}@media(max-width:760px){.search{order:3;width:100%;max-width:none}.features,.product-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.catalog-head{flex-direction:column;align-items:flex-start}.nav{gap:10px;font-size:.7rem;overflow-x:auto;white-space:nowrap}}@media(max-width:520px){.hero h1{font-size:2.4rem}.hero-actions{flex-direction:column;align-items:flex-start}.hero-pill{width:100%;justify-content:center}.art-box{width:280px;right:10px}.headphones{right:140px;transform:scale(.8) rotate(-16deg)}.jar{right:250px}.features,.product-grid{grid-template-columns:1fr}}
+    :root {
+      --yellow:#00d9f5;
+      --yellow-2:#b8ff4a;
+      --pink:#ff3f9f;
+      --purple:#7038ef;
+      --navy:#1b1742;
+      --navy-2:#30236e;
+      --green:#21d6bd;
+      --sky:#00d9f5;
+      --red:#ff4e70;
+      --orange:#ffb83f;
+      --cream:#fff8f1;
+      --bg:#f7f1ff;
+      --white:#fffdfd;
+      --text:#1b1742;
+      --muted:#625b7c;
+      --line:rgba(27,23,66,.12);
+    }
+    body{background:radial-gradient(circle at 8% 8%,rgba(255,63,159,.14),transparent 22%),radial-gradient(circle at 92% 20%,rgba(0,217,245,.16),transparent 24%),linear-gradient(180deg,#fff8f1,#f7f1ff 60%,#e9e2ff)}
+    .topbar{background:linear-gradient(100deg,#1b1742,#30236e);border-bottom:3px solid var(--sky);color:#fff}
+    .brand-name{text-transform:uppercase;letter-spacing:-.06em;font-size:1.15rem}
+    .brand-name span{display:inline}
+    .brand-name .star{color:var(--sky)}
+    .brand-name .mounch{color:var(--pink)}
+    .search{border-color:var(--sky);background:#fff}
+    .nav a,.budget-pill{color:#fff}
+    .budget-pill,.account,.cart-btn{border-color:rgba(0,217,245,.35)}
+    .hero{background:linear-gradient(115deg,#ff3f9f 0%,#7838e8 58%,#00bedd 100%);border-bottom:4px solid var(--yellow-2)}
+    .hero-inner{justify-content:center}
+    .hero-copy{max-width:none;text-align:center}
+    .hero-actions{justify-content:center}
+    .hero h1{color:#fff}
+    .hero h1 .pink{color:var(--yellow-2)}
+    .hero-pill.primary{background:linear-gradient(135deg,#1b1742,#30236e)}
+    .hero-pill.secondary{background:var(--yellow-2);color:var(--navy)}
+    .catalog{background:rgba(255,255,255,.72);border-color:rgba(112,56,239,.18)}
+    .feature,.product{border-color:rgba(112,56,239,.18);box-shadow:0 10px 24px rgba(48,35,110,.07)}
+    .chip,.filter,.store-filter{border-color:rgba(112,56,239,.2)}
+    .filter.active,.store-filter.active,.buy-btn,.checkout{background:linear-gradient(135deg,var(--purple),var(--navy-2));color:#fff}
+    .badge,.cart-count{background:var(--pink)}
+    .nav .account{color:#fff;cursor:pointer}
+    .session-overlay{position:fixed;inset:0;z-index:40;display:none;place-items:center;padding:18px;background:rgba(13,17,40,.65)}
+    .session-overlay.show{display:grid}
+    .session-dialog{width:min(420px,100%);padding:28px;border:2px solid rgba(0,217,245,.5);border-radius:24px;background:#fff;color:var(--text);box-shadow:0 24px 70px rgba(13,17,40,.3);text-align:center}
+    .session-dialog h2{margin:0 0 10px;color:var(--navy)}
+    .session-dialog p{margin:0 0 20px;color:var(--muted);line-height:1.55}
+    .session-amount{display:block;margin:14px 0 26px;color:var(--purple);font-size:clamp(2.8rem,10vw,4.5rem);font-weight:900;letter-spacing:-.07em;line-height:1}
+    .session-actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+    .session-action{min-height:44px;padding:0 18px;border:0;border-radius:999px;background:linear-gradient(135deg,var(--purple),var(--navy-2));color:#fff;font-weight:800;cursor:pointer}
+    .session-action.secondary{border:1px solid var(--line);background:#fff;color:var(--navy)}
+    .reflection-overlay{position:fixed;inset:0;z-index:50;display:none;overflow-y:auto;padding:24px 14px;background:rgba(9,10,31,.88);backdrop-filter:blur(10px)}
+    .reflection-overlay.show{display:block;animation:reflection-fade-in .35s ease both}
+    .reflection-report{width:min(1040px,100%);margin:0 auto;overflow:hidden;border:1px solid rgba(255,255,255,.45);border-radius:30px;background:#fbf9ff;box-shadow:0 32px 100px rgba(0,0,0,.4)}
+    .reflection-hero{position:relative;overflow:hidden;padding:clamp(28px,6vw,66px);background:linear-gradient(120deg,#17133f 0%,#4f2c99 55%,#05a6bd 100%);color:#fff}
+    .reflection-hero:before,.reflection-hero:after{position:absolute;content:"";pointer-events:none}
+    .reflection-hero:before{right:-95px;top:-180px;width:460px;height:460px;border:1px solid rgba(255,255,255,.18);border-radius:50%;box-shadow:0 0 0 36px rgba(255,255,255,.04),0 0 0 72px rgba(255,255,255,.035),0 0 0 108px rgba(255,255,255,.025)}
+    .reflection-hero:after{right:12%;bottom:18%;width:7px;height:7px;border-radius:50%;background:var(--yellow);box-shadow:34px -28px 0 rgba(255,255,255,.85),72px 18px 0 rgba(255,255,255,.6),104px -46px 0 rgba(255,255,255,.45)}
+    .reflection-kicker{position:relative;z-index:1;display:inline-flex;margin:0 0 18px;padding:8px 13px;border:1px solid rgba(255,255,255,.25);border-radius:999px;background:rgba(255,255,255,.1);font-size:.72rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+    .reflection-hero h2{position:relative;z-index:1;max-width:760px;margin:0;font-size:clamp(2.35rem,6.6vw,5rem);line-height:.98;letter-spacing:-.075em}
+    .reflection-hero h2 span{color:var(--yellow)}
+    .reflection-subtitle{position:relative;z-index:1;max-width:650px;margin:20px 0 0;color:rgba(255,255,255,.78);font-size:clamp(.95rem,2vw,1.1rem);line-height:1.65}
+    .impact-comparison{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1fr) 60px minmax(0,1fr);align-items:stretch;gap:14px;margin-top:38px}
+    .comparison-card{position:relative;overflow:hidden;min-height:176px;padding:22px;border:1px solid rgba(255,255,255,.22);border-radius:22px;background:rgba(17,12,49,.46);backdrop-filter:blur(10px);animation:reflection-rise-in .55s ease both}
+    .comparison-card.meals{border-color:rgba(255,212,0,.5);background:linear-gradient(145deg,rgba(255,212,0,.2),rgba(17,12,49,.55));animation-delay:.12s}
+    .comparison-label{display:block;color:rgba(255,255,255,.75);font-size:.78rem;font-weight:750}
+    .comparison-value{display:block;margin:12px 0 8px;font-size:clamp(2.2rem,7vw,4.2rem);font-weight:900;letter-spacing:-.075em;line-height:.95;overflow-wrap:anywhere}
+    .comparison-detail{display:block;color:rgba(255,255,255,.76);font-size:.79rem;line-height:1.5}
+    .comparison-arrow{display:grid;place-items:center;align-self:center;width:52px;height:52px;border:1px solid rgba(255,255,255,.26);border-radius:50%;background:rgba(255,255,255,.1);color:var(--yellow);font-size:1.55rem;font-weight:900}
+    .fx-status{position:relative;z-index:1;min-height:20px;margin:16px 0 0;color:rgba(255,255,255,.73);font-size:.75rem;line-height:1.5}
+    .fx-status a{color:var(--yellow);font-weight:800;text-decoration:underline;text-underline-offset:3px}
+    .fx-status.error{color:#ffd7dc}
+    .fx-retry{margin-left:8px;padding:4px 9px;border:1px solid rgba(255,255,255,.4);border-radius:999px;background:transparent;color:#fff;font-weight:800;cursor:pointer}
+    .impact-meter{position:relative;z-index:1;margin-top:18px}
+    .impact-meter-label{display:flex;justify-content:space-between;gap:12px;color:rgba(255,255,255,.76);font-size:.7rem}
+    .impact-meter-track{height:8px;margin-top:8px;overflow:hidden;border-radius:999px;background:rgba(255,255,255,.2)}
+    .impact-meter-fill{width:0;height:100%;border-radius:inherit;background:linear-gradient(90deg,var(--pink),var(--yellow));transition:width 1.15s cubic-bezier(.2,.8,.2,1)}
+    .impact-statement{position:relative;z-index:1;max-width:760px;margin:20px 0 0;padding:16px 18px;border-left:3px solid var(--yellow);border-radius:0 12px 12px 0;background:rgba(16,12,48,.25);color:rgba(255,255,255,.9);font-size:clamp(.9rem,2vw,1.05rem);line-height:1.55}
+    .reflection-content{padding:clamp(24px,5vw,54px)}
+    .section-eyebrow{margin:0 0 10px;color:var(--purple);font-size:.72rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
+    .reflection-content h3.section-title{margin:0;color:var(--navy);font-size:clamp(1.55rem,4vw,2.4rem);letter-spacing:-.06em;line-height:1.1}
+    .world-intro{max-width:730px;margin:12px 0 24px;color:var(--muted);line-height:1.65}
+    .hunger-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
+    .hunger-stat{min-height:180px;padding:20px;border:1px solid rgba(79,70,229,.14);border-radius:21px;background:linear-gradient(145deg,#fff,#f0edff);animation:reflection-rise-in .55s ease both}
+    .hunger-stat:nth-child(2){animation-delay:.1s}.hunger-stat:nth-child(3){animation-delay:.2s}
+    .hunger-number{display:block;color:var(--purple);font-size:clamp(2rem,5vw,3.25rem);font-weight:900;letter-spacing:-.08em;line-height:1}
+    .hunger-stat p{margin:12px 0 0;color:var(--navy);font-size:.84rem;font-weight:700;line-height:1.5}
+    .hunger-stat small{display:block;margin-top:9px;color:var(--muted);font-size:.7rem;font-weight:500;line-height:1.45}
+    .regions-card{display:grid;grid-template-columns:minmax(160px,.7fr) 1.3fr;gap:22px;margin-top:16px;padding:22px;border-radius:22px;background:#1c1747;color:#fff}
+    .regions-card h3{margin:0;font-size:1.05rem;line-height:1.3}
+    .regions-card p{margin:9px 0 0;color:rgba(255,255,255,.68);font-size:.78rem;line-height:1.55}
+    .region-tags{display:flex;align-content:center;align-items:center;gap:9px;flex-wrap:wrap}
+    .region-tag{padding:9px 12px;border:1px solid rgba(255,255,255,.2);border-radius:999px;background:rgba(255,255,255,.08);font-size:.75rem;font-weight:750}
+    .method-note{margin:20px 0 0;padding:16px 18px;border-left:4px solid var(--sky);border-radius:0 14px 14px 0;background:#effaff;color:var(--muted);font-size:.76rem;line-height:1.65}
+    .source-list{display:flex;gap:9px 18px;flex-wrap:wrap;margin-top:16px}
+    .source-link{color:var(--purple);font-size:.75rem;font-weight:850;text-decoration:underline;text-underline-offset:3px}
+    .reflection-quote{margin:32px 0 0;padding:28px;border-radius:22px;background:linear-gradient(120deg,#fff0be,#ffe3f2 54%,#e7faff);color:var(--navy);font-size:clamp(1rem,2.6vw,1.25rem);font-weight:750;line-height:1.72;letter-spacing:-.025em}
+    .reflection-quote p{margin:0}.reflection-quote p+p{margin-top:14px}
+    .reflection-credits{margin:18px 0 0;color:var(--muted);font-size:.82rem;line-height:1.7;text-align:center}
+    .reflection-credits strong{display:block;color:var(--navy);font-size:.9rem}
+    .reflection-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:22px}
+    .reflection-actions button{min-height:48px;padding:0 20px;border:0;border-radius:999px;background:linear-gradient(135deg,var(--purple),var(--navy-2));color:#fff;font-weight:850;cursor:pointer}
+    .reflection-actions .reflection-secondary{border:1px solid var(--line);background:#fff;color:var(--navy)}
+    @keyframes reflection-fade-in{from{opacity:0}to{opacity:1}}
+    @keyframes reflection-rise-in{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+    @media(prefers-reduced-motion:reduce){.reflection-overlay.show,.comparison-card,.hunger-stat{animation:none}.impact-meter-fill{transition:none}}
+    @media(max-width:900px){.topbar-inner{flex-wrap:wrap;padding:12px 0}.nav{width:100%;margin-left:0;justify-content:flex-end;flex-wrap:wrap}}
+    @media(max-width:680px){.reflection-overlay{padding:10px}.reflection-report{border-radius:21px}.impact-comparison{grid-template-columns:minmax(0,1fr) 40px minmax(0,1fr);gap:7px;margin-top:26px}.comparison-card{min-height:158px;padding:15px;border-radius:17px}.comparison-arrow{width:36px;height:36px;font-size:1.1rem}.comparison-value{font-size:clamp(1.7rem,8vw,3rem)}.hunger-stats{grid-template-columns:1fr}.hunger-stat{min-height:auto}.regions-card{grid-template-columns:1fr;gap:15px}.reflection-quote{padding:20px}.reflection-actions{flex-direction:column-reverse}.reflection-actions button{width:100%}}
+    @media(max-width:380px){.impact-comparison{grid-template-columns:minmax(0,1fr) 28px minmax(0,1fr);gap:4px}.comparison-card{padding:12px}.comparison-arrow{width:28px;height:28px}.comparison-value{font-size:1.65rem}}
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="page topbar-inner">
+      <div class="brand">
+        <span class="brand-mark"></span>
+        <div class="brand-name"><span class="star">STAR</span><span class="mounch">COUNT</span></div>
+      </div>
+      <label class="search" aria-label="Busca">
+        <input id="searchInput" type="search" placeholder="Buscar produtos, marcas e muito mais...">
+        <span class="lens"></span>
+      </label>
+      <nav class="nav" aria-label="Menu principal">
+        <button class="account" id="sessionButton" type="button" aria-haspopup="dialog" aria-controls="sessionDialog"><span class="avatar">★</span><span id="sessionLabel">Iniciar sessão</span></button>
+        <div class="budget-pill"><span>Orçamento</span><strong id="budgetValue">R$ 0,00</strong><span id="budgetLeft">Disponível: R$ 0,00</span></div>
+        <button class="cart-btn" id="openCart" type="button" aria-label="Abrir carrinho">🛒<span class="cart-count" id="cartCount">0</span></button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="page hero-inner">
+        <div class="hero-copy">
+          <h1>STARCOUNT</h1>
+          <div class="hero-actions">
+            <div class="hero-pill primary"><span class="ring"></span> Frete grátis</div>
+            <div class="hero-pill secondary"><span class="perc">60%</span> off</div>
+          </div>
+          <span class="terms">Condições e termos</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="page">
+      <section class="features">
+        <article class="feature"><div class="feature-art"><div class="feature-blob"></div></div><h3>Frete grátis</h3><p>Benefício por ser sua primeira compra.</p><div class="chip">Mostrar produto</div></article>
+        <article class="feature"><div class="feature-art"><div class="feature-blob"></div></div><h3>Visto recentemente</h3><div class="feat-price"><strong>R$ 24</strong><del>R$ 38</del></div><div class="chip">Comprar agora</div></article>
+        <article class="feature"><div class="feature-art"><div class="feature-blob"></div></div><h3>Conclua sua compra</h3><div class="feat-price"><strong>R$ 24</strong><del>R$ 31</del></div><div class="chip">Concluir compra</div></article>
+        <article class="feature"><div class="feature-art"><div class="feature-blob"></div></div><h3>Compre seu carrinho</h3><div class="feat-price"><strong>R$ 20</strong><del>R$ 30</del></div><div class="chip">Ver mais</div></article>
+        <article class="feature"><div class="feature-art"><div class="feature-blob"></div></div><h3>Melhores pagamentos</h3><div class="feat-price"><strong>R$ 38</strong><del>R$ 44</del></div><div class="chip">Ver ofertas</div></article>
+      </section>
+
+      <section class="catalog">
+        <div class="catalog-head">
+          <h2>Inspirado no último visto</h2>
+        </div>
+        <div class="filters" id="filters"></div>
+        <div class="store-filters" id="storeFilters"></div>
+        <div id="productGrid" class="product-grid"></div>
+      </section>
+    </div>
+  </main>
+
+  <div class="backdrop" id="backdrop"></div>
+
+  <div class="session-overlay" id="sessionOverlay">
+    <section class="session-dialog" id="sessionDialog" role="dialog" aria-modal="true" aria-labelledby="sessionTitle">
+      <h2 id="sessionTitle">Iniciar sessão</h2>
+      <p id="sessionMessage">Sem e-mail ou senha. Sorteie um valor para usar como orçamento nesta sessão.</p>
+      <strong class="session-amount" id="sessionAmount" hidden></strong>
+      <div class="session-actions">
+        <button class="session-action" id="drawBudget" type="button">Sortear valor</button>
+        <button class="session-action secondary" id="closeSession" type="button">Fechar</button>
+      </div>
+    </section>
+  </div>
+
+  <div class="reflection-overlay" id="reflectionOverlay">
+    <section class="reflection-report" role="dialog" aria-modal="true" aria-labelledby="reflectionTitle">
+      <header class="reflection-hero">
+        <p class="reflection-kicker">STARCOUNT · uma pausa para refletir</p>
+        <h2 id="reflectionTitle">O valor de uma compra.<br><span>A dimensão de uma crise.</span></h2>
+        <p class="reflection-subtitle">O total da sua compra simulada, convertido em uma estimativa de refeições que poderiam ser financiadas com o mesmo valor. Uma comparação para refletir — não uma doação realizada.</p>
+        <div class="impact-comparison" aria-label="Comparação do valor gasto e refeições que poderiam ser financiadas">
+          <article class="comparison-card">
+            <span class="comparison-label">Você gastou na simulação</span>
+            <strong class="comparison-value" id="reflectionSpent">R$ 0,00</strong>
+            <span class="comparison-detail">em produtos escolhidos<br><strong id="convertedUsd">≈ US$ —</strong></span>
+          </article>
+          <span class="comparison-arrow" aria-hidden="true">→</span>
+          <article class="comparison-card meals">
+            <span class="comparison-label">Impacto potencial</span>
+            <strong class="comparison-value" id="mealCount" aria-live="polite">—</strong>
+            <span class="comparison-detail">refeições que poderiam ser financiadas*</span>
+          </article>
+        </div>
+        <p class="fx-status" id="fxStatus" role="status">Consultando cotação cambial atualizada…</p>
+        <div class="impact-meter">
+          <div class="impact-meter-label"><span>Valor convertido ÷ referência de US$ 0,50 por refeição</span><span id="mealCostLabel">PMA · US$ 0,50</span></div>
+          <div class="impact-meter-track" role="img" aria-label="Representação visual da equivalência estimada">
+            <div class="impact-meter-fill" id="impactMeterFill"></div>
+          </div>
+        </div>
+        <p class="impact-statement" id="impactStatement" aria-live="polite"></p>
+      </header>
+      <div class="reflection-content">
+        <p class="section-eyebrow">A realidade por trás dos números</p>
+        <h3 class="section-title">A fome não é uma abstração.</h3>
+        <p class="world-intro">A fome está ligada à falta de acesso regular a alimentos suficientes e nutritivos. Conflitos, deslocamentos, choques climáticos e crises econômicas agravam a insegurança alimentar em diversas regiões.</p>
+        <div class="hunger-stats">
+          <article class="hunger-stat">
+            <strong class="hunger-number">645 mi</strong>
+            <p>de pessoas enfrentaram a fome no mundo em 2025.</p>
+            <small>Estimativa de subalimentação da FAO, publicada no SOFI 2026.</small>
+          </article>
+          <article class="hunger-stat">
+            <strong class="hunger-number">2,7 bi</strong>
+            <p>não podiam pagar por uma dieta saudável em 2025.</p>
+            <small>Estimativa global da FAO, publicada no SOFI 2026.</small>
+          </article>
+          <article class="hunger-stat">
+            <strong class="hunger-number">266 mi</strong>
+            <p>em 2026 enfrentavam ou estavam em risco de níveis agudos de fome.</p>
+            <small>Estimativa citada pelo PMA a partir do Global Report on Food Crises 2026.</small>
+          </article>
+        </div>
+        <aside class="regions-card">
+          <div>
+            <h3>Onde as crises são mais graves</h3>
+            <p>O PMA destaca conflitos e deslocamentos como fatores centrais. Em 2025, foram confirmadas duas situações de fome: em partes de Gaza e do Sudão.</p>
+          </div>
+          <div class="region-tags" aria-label="Regiões afetadas por crises alimentares">
+            <span class="region-tag">África Oriental, Central e Ocidental</span>
+            <span class="region-tag">Gaza e Sudão</span>
+            <span class="region-tag">Sul da Ásia</span>
+            <span class="region-tag">Caribe</span>
+            <span class="region-tag">Europa Oriental</span>
+          </div>
+        </aside>
+        <p class="world-intro">Ter comida disponível não basta: as pessoas precisam conseguir acessá-la de forma regular e pagar por uma alimentação adequada, nutritiva e segura. Choques e desigualdades podem interromper esse acesso mesmo quando há alimentos no mercado.</p>
+        <p class="method-note"><strong>Como ler a estimativa:</strong> o valor em reais é convertido para dólares pela cotação BRL/USD consultada no momento. Em seguida, o resultado é dividido pela referência simplificada de US$ 0,50 por refeição solicitada para esta simulação e atribuída ao PMA. Esse valor não é um preço universal nem substitui o custo específico de uma operação; os custos variam por país, logística e período. Refeições potenciais não significam pessoas alimentadas; nenhuma doação ou entrega acontece por esta compra.</p>
+        <div class="source-list" aria-label="Fontes e dados">
+          <a class="source-link" href="https://www.fao.org/publications/fao-flagship-publications/the-state-of-food-security-and-nutrition-in-the-world/2026/en" target="_blank" rel="noopener noreferrer">FAO · SOFI 2026 (dados de 2025)</a>
+          <a class="source-link" href="https://www.wfp.org/global-hunger-crisis" target="_blank" rel="noopener noreferrer">PMA · Crise global de fome (2026)</a>
+          <a class="source-link" href="https://www.wfp.org/publications/global-report-food-crises-grfc" target="_blank" rel="noopener noreferrer">PMA / FAO · GRFC 2026</a>
+          <a class="source-link" href="https://www.wfp.org/school-meals" target="_blank" rel="noopener noreferrer">PMA · Programas de alimentação escolar</a>
+          <a class="source-link" href="https://www.frankfurter.app/docs/" target="_blank" rel="noopener noreferrer">Frankfurter · API de câmbio baseada em taxas do BCE</a>
+        </div>
+        <blockquote class="reflection-quote">
+          <p>Para algumas pessoas, comprar algo novo é apenas mais uma escolha. Para outras, ter o que comer é um desafio diário.</p>
+          <p>O dinheiro que você gastou representa mais do que um número. Ele também nos faz pensar sobre nossas prioridades, nossas escolhas e as desigualdades que existem no mundo.</p>
+          <p>Consumir é uma escolha. Ter acesso à alimentação deveria ser um direito.</p>
+        </blockquote>
+        <footer class="reflection-credits">
+          <strong>Obrigado por fazer parte dessa experiência.</strong>
+          Feito pelos alunos: Henrique, Maria, Beatriz e Danilo · 1º C — Biologia e Sustentabilidade
+        </footer>
+        <div class="reflection-actions">
+          <button class="reflection-secondary" id="closeReflection" type="button">Voltar à loja</button>
+          <button id="newSessionAfterReflection" type="button">Iniciar nova sessão</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <aside class="cart-drawer" id="cartDrawer">
+    <div class="cart-head">
+      <h3>Seu carrinho</h3>
+      <button class="close-btn" id="closeCart" type="button">×</button>
+    </div>
+    <div class="cart-body">
+      <div class="empty" id="emptyCart">Seu carrinho está vazio.<br>Adicione alguns itens para começar.</div>
+      <div id="cartItems"></div>
+      <div class="sum">
+        <div class="sum-row"><span>Subtotal</span><strong id="subtotal">R$ 0,00</strong></div>
+        <div class="sum-row"><span>Frete</span><strong id="shipping">R$ 0,00</strong></div>
+        <div class="sum-row total"><span>Total</span><strong id="total">R$ 0,00</strong></div>
+        <button class="checkout" id="checkout" type="button" disabled>Finalizar compra</button>
+      </div>
+    </div>
+  </aside>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    const categories = ['Tudo','Tecnologia','Games','Moda','Tênis','Beleza'];
+    const stores = ['Todas as lojas','TechZone','Game Over','Street Point','Sneaker House','Beauty Lab'];
+
+    const products = [
+      {id:1, name:'(Exemplo 1)', store:'TechZone', category:'Tecnologia', price:1899.90, oldPrice:2399.90, badge:'Novo', discount:'20% OFF', shipping:'Frete grátis', image:'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=900&q=80', description:'Produto exemplo 1 da STARCOUNT.'},
+      {id:6, name:'(Exemplo 2)', store:'Game Over', category:'Games', price:399.90, oldPrice:649.90, badge:'Ultra', discount:'38% OFF', shipping:'Frete grátis', image:'https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?auto=format&fit=crop&w=900&q=80', description:'Produto exemplo 2 da STARCOUNT.'},
+      {id:11, name:'(Exemplo 3)', store:'Street Point', category:'Moda', price:69.90, oldPrice:119.90, badge:'Estilo', discount:'41% OFF', shipping:'Frete grátis', image:'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=900&q=80', description:'Produto exemplo 3 da STARCOUNT.'},
+      {id:16, name:'(Exemplo 4)', store:'Sneaker House', category:'Tênis', price:219.90, oldPrice:349.90, badge:'Vendido', discount:'37% OFF', shipping:'Frete grátis', image:'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=80', description:'Produto exemplo 4 da STARCOUNT.'},
+      {id:20, name:'(Exemplo 5)', store:'Beauty Lab', category:'Beleza', price:89.90, oldPrice:149.90, badge:'Cuidados', discount:'40% OFF', shipping:'Frete grátis', image:'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=900&q=80', description:'Produto exemplo 5 da STARCOUNT.'},
+    ];
+
+    let activeCategory = 'Tudo';
+    let activeStore = 'Todas as lojas';
+    let searchTerm = '';
+    let cart = JSON.parse(localStorage.getItem('retro-cart') || '{}');
+    const savedBudget = Number(localStorage.getItem('star-budget'));
+    let budget = Number.isFinite(savedBudget) && savedBudget >= 1000 && savedBudget <= 2000 ? savedBudget : null;
+    let sessionActive = localStorage.getItem('star-session-active') === 'true' && budget !== null;
+    if (!sessionActive) budget = null;
+
+    function remainingBudget(){
+      return sessionActive ? Math.max(budget - getSummary().subtotal, 0) : 0;
+    }
+
+    const filtersEl = document.getElementById('filters');
+    const storeFiltersEl = document.getElementById('storeFilters');
+    const productGrid = document.getElementById('productGrid');
+    const cartItems = document.getElementById('cartItems');
+    const cartDrawer = document.getElementById('cartDrawer');
+    const backdrop = document.getElementById('backdrop');
+    const cartCount = document.getElementById('cartCount');
+    const emptyCart = document.getElementById('emptyCart');
+    const subtotalEl = document.getElementById('subtotal');
+    const shippingEl = document.getElementById('shipping');
+    const totalEl = document.getElementById('total');
+    const checkoutBtn = document.getElementById('checkout');
+    const toast = document.getElementById('toast');
+    const searchInput = document.getElementById('searchInput');
+    const budgetValue = document.getElementById('budgetValue');
+    const budgetLeft = document.getElementById('budgetLeft');
+    const sessionButton = document.getElementById('sessionButton');
+    const sessionLabel = document.getElementById('sessionLabel');
+    const sessionOverlay = document.getElementById('sessionOverlay');
+    const sessionTitle = document.getElementById('sessionTitle');
+    const sessionMessage = document.getElementById('sessionMessage');
+    const sessionAmount = document.getElementById('sessionAmount');
+    const drawBudgetButton = document.getElementById('drawBudget');
+    const reflectionOverlay = document.getElementById('reflectionOverlay');
+    const reflectionSpent = document.getElementById('reflectionSpent');
+    const convertedUsd = document.getElementById('convertedUsd');
+    const mealCount = document.getElementById('mealCount');
+    const fxStatus = document.getElementById('fxStatus');
+    const impactMeterFill = document.getElementById('impactMeterFill');
+    const impactStatement = document.getElementById('impactStatement');
+
+    const money = n => new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(n);
+    const MEAL_REFERENCE_USD = 0.5;
+    const FX_API_URL = 'https://api.frankfurter.dev/v1/latest?from=BRL&to=USD';
+
+    function saveCart(){ localStorage.setItem('retro-cart', JSON.stringify(cart)); }
+    function saveSession(){
+      if (sessionActive) {
+        localStorage.setItem('star-budget', String(budget));
+        localStorage.setItem('star-session-active', 'true');
+      } else {
+        localStorage.removeItem('star-budget');
+        localStorage.setItem('star-session-active', 'false');
+      }
+    }
+
+    function updateSessionUI(){
+      sessionLabel.textContent = sessionActive ? 'Sessão ativa' : 'Iniciar sessão';
+      sessionTitle.textContent = sessionActive ? 'Valor sorteado!' : 'Iniciar sessão';
+      sessionMessage.textContent = sessionActive
+        ? 'Esse é o orçamento da sua sessão. Boas compras!'
+        : 'Sorteie um valor para usar como orçamento nesta sessão.';
+      sessionAmount.textContent = sessionActive ? money(budget) : '';
+      sessionAmount.hidden = !sessionActive;
+      drawBudgetButton.hidden = sessionActive;
+      updateBudgetDisplay();
+    }
+
+    function showReflection(total){
+      reflectionSpent.textContent = money(total);
+      convertedUsd.textContent = '≈ US$ —';
+      mealCount.textContent = '—';
+      fxStatus.classList.remove('error');
+      fxStatus.textContent = 'Consultando cotação cambial atualizada…';
+      impactStatement.textContent = '';
+      impactMeterFill.style.width = '0';
+      reflectionOverlay.classList.add('show');
+      loadMealEstimate(total);
+    }
+
+    async function loadMealEstimate(total){
+      fxStatus.classList.remove('error');
+      fxStatus.textContent = 'Consultando cotação cambial atualizada…';
+      try {
+        const response = await fetch(FX_API_URL);
+        if (!response.ok) throw new Error(`Cotação indisponível (HTTP ${response.status}).`);
+
+        const exchange = await response.json();
+        const brlToUsd = exchange.rates && exchange.rates.USD;
+        if (!Number.isFinite(brlToUsd) || brlToUsd <= 0 || !/^\d{4}-\d{2}-\d{2}$/.test(exchange.date || '')) {
+          throw new Error('A API retornou uma cotação inválida.');
+        }
+
+        const usdValue = total * brlToUsd;
+        const meals = Math.floor(usdValue / MEAL_REFERENCE_USD);
+        const conversionDate = new Intl.DateTimeFormat('pt-BR', {
+          dateStyle: 'long',
+          timeZone: 'UTC'
+        }).format(new Date(`${exchange.date}T12:00:00Z`));
+        const calculationDate = new Intl.DateTimeFormat('pt-BR', { dateStyle: 'long' }).format(new Date());
+
+        mealCount.textContent = meals.toLocaleString('pt-BR');
+        convertedUsd.textContent = `≈ ${new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(usdValue).replace('$', 'US$ ')}`;
+        impactStatement.textContent = `Enquanto você gastou ${money(total)} em produtos que desejava comprar, esse mesmo valor poderia representar aproximadamente ${meals.toLocaleString('pt-BR')} refeições que poderiam ser financiadas.`;
+        fxStatus.innerHTML = `Cálculo em ${calculationDate} · cotação de referência de ${conversionDate}: R$ 1 = US$ ${brlToUsd.toFixed(5)}. <a href="https://www.frankfurter.app/docs/" target="_blank" rel="noopener noreferrer">Fonte: Frankfurter / taxas de referência do BCE</a>`;
+        requestAnimationFrame(() => {
+          impactMeterFill.style.width = '100%';
+        });
+      } catch (error) {
+        console.error('Não foi possível calcular a estimativa de refeições.', error);
+        fxStatus.classList.add('error');
+        fxStatus.textContent = 'Não foi possível obter uma cotação válida. A estimativa de refeições não foi calculada; tente novamente.';
+        const retryButton = document.createElement('button');
+        retryButton.className = 'fx-retry';
+        retryButton.type = 'button';
+        retryButton.textContent = 'Tentar novamente';
+        retryButton.addEventListener('click', () => loadMealEstimate(total), { once: true });
+        fxStatus.append(' ', retryButton);
+      }
+    }
+
+    function closeReflection(){
+      reflectionOverlay.classList.remove('show');
+    }
+
+    function startSession(){
+      budget = Math.floor(Math.random() * 1001) + 1000;
+      sessionActive = true;
+      cart = {};
+      saveCart();
+      saveSession();
+      updateSessionUI();
+      updateCart();
+      sessionOverlay.classList.add('show');
+      toastMsg(`Seu orçamento sorteado é ${money(budget)}.`);
+    }
+
+    function getCartItems(){
+      return Object.entries(cart).map(([id, qty]) => {
+        const product = products.find(item => item.id === Number(id));
+        return product ? { ...product, qty } : null;
+      }).filter(Boolean);
+    }
+
+    function getSummary(){
+      const items = getCartItems();
+      const subtotal = items.reduce((sum, item) => sum + item.price * item.qty, 0);
+      const shipping = items.length && subtotal <= 250 ? 18.90 : 0;
+      const total = subtotal + shipping;
+      return { items, subtotal, shipping, total };
+    }
+
+    function updateBudgetDisplay(){
+      if (!sessionActive) {
+        budgetValue.textContent = '—';
+        budgetLeft.textContent = 'Inicie uma sessão';
+        budgetLeft.style.color = 'var(--navy)';
+        return;
+      }
+      const remaining = remainingBudget();
+      budgetValue.textContent = money(budget);
+      budgetLeft.textContent = `Disponível: ${money(remaining)}`;
+      budgetLeft.style.color = remaining <= 0 ? '#b41b39' : 'var(--navy)';
+    }
+
+    function renderFilters(){
+      filtersEl.innerHTML = categories.map(cat => `<button class="filter ${cat === activeCategory ? 'active' : ''}" type="button" data-category="${cat}">${cat}</button>`).join('');
+      filtersEl.querySelectorAll('.filter').forEach(btn => {
+        btn.addEventListener('click', () => {
+          activeCategory = btn.dataset.category;
+          renderFilters();
+          renderProducts();
+        });
+      });
+    }
+
+    function renderStoreFilters(){
+      storeFiltersEl.innerHTML = stores.map(store => `<button class="store-filter ${store === activeStore ? 'active' : ''}" type="button" data-store="${store}">${store}</button>`).join('');
+      storeFiltersEl.querySelectorAll('.store-filter').forEach(btn => {
+        btn.addEventListener('click', () => {
+          activeStore = btn.dataset.store;
+          renderStoreFilters();
+          renderProducts();
+        });
+      });
+    }
+
+    function renderProducts(){
+      const visible = products.filter(product => {
+        const categoryOk = activeCategory === 'Tudo' || product.category === activeCategory;
+        const storeOk = activeStore === 'Todas as lojas' || product.store === activeStore;
+        const searchText = [product.name, product.description, product.category, product.store].join(' ').toLowerCase();
+        const searchOk = searchText.includes(searchTerm.toLowerCase());
+        return categoryOk && storeOk && searchOk;
+      });
+
+      if (!visible.length) {
+        productGrid.innerHTML = '<div style="grid-column:1 / -1;padding:40px 20px;text-align:center;border:1px dashed rgba(16,29,74,.2);border-radius:16px;background:rgba(255,255,255,.5);color:var(--muted)">Nenhum produto encontrado para sua busca.</div>';
+        return;
+      }
+
+      productGrid.innerHTML = visible.map(product => `
+        <article class="product">
+          <div class="img-wrap">
+            <img src="${product.image}" alt="${product.name}">
+            <span class="badge">${product.badge}</span>
+            <span class="store-badge">${product.store}</span>
+          </div>
+          <h3>${product.name}</h3>
+          <p class="desc">${product.description}</p>
+          <div class="price-row"><strong>${money(product.price)}</strong><del>${money(product.oldPrice)}</del></div>
+          <div class="discount">${product.discount}</div>
+          <div class="shipping"><strong>${product.shipping}</strong> por sua primeira compra</div>
+          <div class="product-actions">
+            <button class="buy-btn" type="button" data-add="${product.id}">Comprar</button>
+            <button class="mini-btn" type="button" data-add="${product.id}" aria-label="Adicionar ao carrinho">🛒</button>
+          </div>
+        </article>
+      `).join('');
+
+      productGrid.querySelectorAll('[data-add]').forEach(btn => btn.addEventListener('click', () => addToCart(Number(btn.dataset.add))));
+    }
+
+    function addToCart(productId){
+      const product = products.find(item => item.id === productId);
+      if (!product) return;
+      if (!sessionActive) {
+        toastMsg('Inicie uma sessão para receber seu orçamento e comprar.');
+        return;
+      }
+
+      const subtotalAtual = getSummary().subtotal;
+      const remaining = budget - subtotalAtual;
+      if (product.price > remaining) {
+        toastMsg('Orçamento excedido. Remova itens ou escolha outro produto.');
+        return;
+      }
+
+      cart[productId] = (cart[productId] || 0) + 1;
+      saveCart();
+      updateCart();
+      openCart();
+      toastMsg(`${product.name} adicionado ao carrinho!`);
+    }
+
+    function changeQty(productId, delta){
+      const product = products.find(item => item.id === productId);
+      if (!product || !sessionActive) return;
+
+      const currentSubtotal = getSummary().subtotal;
+      const nextQty = (cart[productId] || 0) + delta;
+
+      if (nextQty <= 0) {
+        delete cart[productId];
+      } else {
+        const remainingAfter = budget - (currentSubtotal - (cart[productId] || 0) * product.price + nextQty * product.price);
+        if (remainingAfter < 0) {
+          toastMsg('Você não pode ultrapassar o orçamento sorteado.');
+          return;
+        }
+        cart[productId] = nextQty;
+      }
+
+      saveCart();
+      updateCart();
+    }
+
+    function removeFromCart(productId){
+      delete cart[productId];
+      saveCart();
+      updateCart();
+    }
+
+    function updateCart(){
+      const items = getCartItems();
+      const summary = getSummary();
+      const totalQty = items.reduce((sum, item) => sum + item.qty, 0);
+      cartCount.textContent = totalQty;
+      emptyCart.style.display = items.length ? 'none' : 'block';
+
+      cartItems.innerHTML = items.map(item => `
+        <div class="cart-item">
+          <img src="${item.image}" alt="${item.name}">
+          <div>
+            <h4>${item.name}</h4>
+            <div class="cart-item-price">${money(item.price * item.qty)}</div>
+            <div class="qty">
+              <button type="button" data-minus="${item.id}">−</button>
+              <span>${item.qty}</span>
+              <button type="button" data-plus="${item.id}">+</button>
+            </div>
+            <button type="button" class="remove" data-remove="${item.id}">Remover</button>
+          </div>
+          <div style="display:flex;align-items:flex-end;justify-content:flex-end;font-weight:800;color:var(--navy);font-size:.8rem">${money(item.price)}</div>
+        </div>
+      `).join('');
+
+      subtotalEl.textContent = money(summary.subtotal);
+      shippingEl.textContent = money(summary.shipping);
+      totalEl.textContent = money(summary.total);
+      checkoutBtn.disabled = !items.length || !sessionActive;
+      updateBudgetDisplay();
+
+      cartItems.querySelectorAll('[data-minus]').forEach(btn => btn.addEventListener('click', () => changeQty(Number(btn.dataset.minus), -1)));
+      cartItems.querySelectorAll('[data-plus]').forEach(btn => btn.addEventListener('click', () => changeQty(Number(btn.dataset.plus), 1)));
+      cartItems.querySelectorAll('[data-remove]').forEach(btn => btn.addEventListener('click', () => removeFromCart(Number(btn.dataset.remove))));
+    }
+
+    function openCart(){ cartDrawer.classList.add('open'); backdrop.classList.add('show'); }
+    function closeCart(){ cartDrawer.classList.remove('open'); backdrop.classList.remove('show'); }
+    function openSessionDialog(){ updateSessionUI(); sessionOverlay.classList.add('show'); }
+    function closeSessionDialog(){ sessionOverlay.classList.remove('show'); }
+    function toastMsg(msg){ toast.textContent = msg; toast.classList.add('show'); clearTimeout(toast.t); toast.t = setTimeout(() => toast.classList.remove('show'), 1700); }
+
+    sessionButton.addEventListener('click', openSessionDialog);
+    document.getElementById('closeReflection').addEventListener('click', closeReflection);
+    document.getElementById('newSessionAfterReflection').addEventListener('click', () => {
+      closeReflection();
+      openSessionDialog();
+    });
+    document.getElementById('closeSession').addEventListener('click', closeSessionDialog);
+    drawBudgetButton.addEventListener('click', startSession);
+    sessionOverlay.addEventListener('click', event => {
+      if (event.target === sessionOverlay) closeSessionDialog();
+    });
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') {
+        closeSessionDialog();
+        closeReflection();
+      }
+    });
+    document.getElementById('openCart').addEventListener('click', openCart);
+    document.getElementById('closeCart').addEventListener('click', closeCart);
+    document.getElementById('backdrop').addEventListener('click', closeCart);
+    searchInput.addEventListener('input', e => { searchTerm = e.target.value.trim(); renderProducts(); });
+
+    document.getElementById('checkout').addEventListener('click', () => {
+      const summary = getSummary();
+      if (!summary.items.length) return;
+      if (!sessionActive) {
+        toastMsg('Inicie uma sessão antes de finalizar a compra.');
+        return;
+      }
+      if (summary.total > budget) {
+        toastMsg('Compra excede o orçamento disponível.');
+        return;
+      }
+      toastMsg(`Compra finalizada! Total: ${money(summary.total)}`);
+      showReflection(summary.total);
+      cart = {};
+      saveCart();
+      sessionActive = false;
+      budget = null;
+      saveSession();
+      updateCart();
+      closeCart();
+    });
+
+    renderFilters();
+    renderStoreFilters();
+    renderProducts();
+    updateCart();
+    updateSessionUI();
+    saveSession();
+  </script>
+</body>
+</html>
